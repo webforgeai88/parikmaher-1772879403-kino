@@ -265,6 +265,24 @@
     .plist .price { grid-column: 2; }
   }
 
+  /* ---- мастер, к которому возвращаются: имя и слова гостей из отзывов ------- */
+  .gml { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--v-7) var(--v-9); align-items: start; }
+  .gml__who { position: sticky; top: clamp(5rem, 12vh, 7rem); display: grid; gap: var(--v-3); }
+  .gml__name { font-family: var(--v-font-display); font-weight: 600; font-size: clamp(2.8rem, 1.6rem + 5vw, 6rem); line-height: 1; letter-spacing: -.02em; color: var(--v-accent); }
+  .gml__who p { color: var(--v-ink-soft); max-width: 34ch; text-wrap: pretty; }
+  .gml__list { display: grid; gap: 0; }
+  .gml__item { padding: var(--v-5) 0; border-top: 1px solid var(--v-hair); }
+  .gml__item:last-child { border-bottom: 1px solid var(--v-hair); }
+  .gml__text { font-size: var(--v-t-lg); line-height: 1.4; max-width: 44ch; text-wrap: pretty; }
+  .gml__meta { margin-top: var(--v-3); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .gml__meta b { color: var(--v-ink); font-weight: 600; }
+  .gml__more { margin-top: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 52ch; }
+  @media (max-width: 860px) {
+    .gml { grid-template-columns: 1fr; gap: var(--v-5); }
+    .gml__who { position: static; }
+    .gml__meta, .gml__more { font-size: .95rem; }
+  }
+
   /* ---- акт 5 · в кресле: широкий кадр с параллаксом, факты ------------------- */
   .atm__fig { position: relative; aspect-ratio: 21 / 9; border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2); background: var(--v-surface); margin-bottom: var(--v-8); }
   .atm__fig .v-layer { inset: -18% 0; }
@@ -569,8 +587,36 @@
       </div>
     </section>
 
+    <!-- 4б · МАСТЕР: Гамлет, слова гостей из отзывов -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#1e1815" id="gamlet" aria-label="Мастер Гамлет">
+      <div class="v-wrap gml">
+        <div class="gml__who" data-v-in data-v-stagger="60">
+          <span class="v-label">К кому возвращаются</span>
+          <h2 class="gml__name">Гамлет</h2>
+          <p>Мастер, которого в отзывах на Яндекс.Картах называют по имени. Слова гостей – без правок, длинные отзывы сокращены.</p>
+        </div>
+        <div>
+          <ul class="gml__list" data-v-in data-v-stagger="80">
+            <li class="gml__item">
+              <p class="gml__text">«Сегодня меня подстриг мастер по имени Гамлет, это уже вторая моя стрижка у него и не стану врать все было на высшем уровне…»</p>
+              <p class="gml__meta"><b>Кирилл Банников</b> · 17 августа</p>
+            </li>
+            <li class="gml__item">
+              <p class="gml__text">«Мастер Гамлет обсудил со мной моменты стрижки…»</p>
+              <p class="gml__meta"><b>Наталья Прекрасная</b> · 14 марта</p>
+            </li>
+            <li class="gml__item">
+              <p class="gml__text">«Подстригали сына у мастера Гамлета, все супер!»</p>
+              <p class="gml__meta"><b>Александра Б.</b> · 2 февраля</p>
+            </li>
+          </ul>
+          <p class="gml__more" data-v-in>Остальных мастеров добавим на эту страницу по вашему списку: имя, уровень, фото.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- 5 · ДОКАЗАТЕЛЬСТВО: атмосфера -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#1e1815" id="atmosfera" aria-label="Удобства">
+    <section class="v-section" data-v-act="flow" data-v-drift="#241d19" id="atmosfera" aria-label="Удобства">
       <div class="v-wrap">
         <figure class="atm__fig">
           <div class="v-layer" data-v-parallax="0.4">
@@ -594,7 +640,7 @@
     </section>
 
     <!-- 6 · ДОВЕРИЕ: отзывы с Яндекс.Карт -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#241d19" id="otzyvy" aria-label="Отзывы с Яндекс.Карт">
+    <section class="v-section" data-v-act="flow" data-v-drift="#1e1815" id="otzyvy" aria-label="Отзывы с Яндекс.Карт">
       <div class="v-wrap reviews">
         <div class="reviews__head" data-v-in data-v-stagger="60">
           <div>
